@@ -9,7 +9,7 @@ BASE = "http://www.law.go.kr"
 
 def get_law_list_from_api(query):
     exact_query = f'\"{query}\"'
-    encoded_query = quote(exact_query)
+    encoded_query = quote(f'"{query}"')  # ✅ 핵심 수정 포인트
     page = 1
     laws = []
     while True:
