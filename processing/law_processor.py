@@ -104,3 +104,5 @@ def run_amendment_logic(find_word, replace_word):
         amendment_results.append(sentence)
 
     return amendment_results if amendment_results else ["⚠️ 개정 대상 조문이 없습니다."]
+
+    print("📌 최신 law_processor.py 로직이 실행되었습니다.")
