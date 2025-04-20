@@ -31,7 +31,7 @@ def run_search_logic(query, unit):
     return law_dict
 
 def get_law_text(mst, query, unit):
-    law_url = f"{BASE_URL}/lawService.do?OC={OC}&target=law&type=XML&lawType=한글&ID={mst}"
+    law_url = f"{BASE_URL}/lawService.do?OC={OC}&target=law&type=XML&lawType=한글&mMST={mst}"
     res = requests.get(law_url)
     res.encoding = "utf-8"
 
