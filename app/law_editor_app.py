@@ -13,12 +13,11 @@ with st.expander("ℹ️ 읽어주세요"):
 
 # 검색 기능 UI
 st.header("🔍 검색 기능")
-scol1, scol2, scol3 = st.columns([6, 1, 1])
-with scol1:
-    search_query = st.text_input("검색어 입력", key="search_query")
-with scol2:
+search_query = st.text_input("검색어 입력", key="search_query")
+search_col = st.columns([1, 1])
+with search_col[0]:
     do_search = st.button("검색 시작")
-with scol3:
+with search_col[1]:
     do_reset = st.button("초기화")
 
 search_unit = st.radio("다중검색 단위선택 (미선택시 법률 단위 필터링)", ["법률", "조", "항", "호", "목"], horizontal=True, index=0)
@@ -35,12 +34,12 @@ if do_search and search_query:
 
 # 개정문 생성 UI
 st.header("✏️ 타법개정문 생성")
-acol1, acol2, acol3 = st.columns([4, 4, 1])
-with acol1:
+amend_cols = st.columns([4, 4, 1])
+with amend_cols[0]:
     find_word = st.text_input("찾을 단어", key="find_word")
-with acol2:
+with amend_cols[1]:
     replace_word = st.text_input("바꿀 단어", key="replace_word")
-with acol3:
+with amend_cols[2]:
     do_amend = st.button("개정문 생성")
 
 if do_amend and find_word and replace_word:
