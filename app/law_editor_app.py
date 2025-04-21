@@ -2,6 +2,7 @@ import streamlit as st
 import sys
 import os
 
+# 경로 오류 방지: law_processor 경로를 명확히 설정
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "processing")))
 from law_processor import run_search_logic, run_amendment_logic
 
@@ -11,7 +12,6 @@ st.title("📘 부칙개정 도우미")
 with st.expander("ℹ️ 읽어주세요"):
     st.markdown("이 앱은 검색 기능과 개정문 자동생성 기능을 제공합니다.\n- 검색: 법령에서 특정 단어가 포함된 조문을 검색합니다.\n- 개정문 생성: 특정 단어를 다른 단어로 대체하는 부칙 개정문을 생성합니다.")
 
-# 검색 기능 UI
 st.header("🔍 검색 기능")
 search_query = st.text_input("검색어 입력", key="search_query")
 search_col = st.columns([1, 1])
@@ -32,7 +32,6 @@ if do_search and search_query:
                 for html in sections:
                     st.markdown(html, unsafe_allow_html=True)
 
-# 개정문 생성 UI
 st.header("✏️ 타법개정문 생성")
 amend_cols = st.columns([4, 4, 1])
 with amend_cols[0]:
